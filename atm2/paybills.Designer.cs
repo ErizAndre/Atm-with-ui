@@ -53,7 +53,7 @@
             // 
             // guna2Button9
             // 
-            guna2Button9.BorderRadius = 20;
+            guna2Button9.BorderRadius = 16;
             guna2Button9.CustomizableEdges = customizableEdges1;
             guna2Button9.DisabledState.BorderColor = Color.DarkGray;
             guna2Button9.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -62,16 +62,17 @@
             guna2Button9.FillColor = Color.FromArgb(255, 128, 128);
             guna2Button9.Font = new Font("Segoe UI Historic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button9.ForeColor = Color.Black;
-            guna2Button9.Location = new Point(521, 280);
+            guna2Button9.Location = new Point(456, 210);
+            guna2Button9.Margin = new Padding(3, 2, 3, 2);
             guna2Button9.Name = "guna2Button9";
             guna2Button9.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button9.Size = new Size(256, 43);
+            guna2Button9.Size = new Size(224, 32);
             guna2Button9.TabIndex = 57;
             guna2Button9.Text = "Cancel";
             // 
             // guna2Button10
             // 
-            guna2Button10.BorderRadius = 20;
+            guna2Button10.BorderRadius = 16;
             guna2Button10.CustomizableEdges = customizableEdges3;
             guna2Button10.DisabledState.BorderColor = Color.DarkGray;
             guna2Button10.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -80,10 +81,11 @@
             guna2Button10.FillColor = Color.FromArgb(128, 255, 128);
             guna2Button10.Font = new Font("Segoe UI Historic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button10.ForeColor = Color.Black;
-            guna2Button10.Location = new Point(521, 329);
+            guna2Button10.Location = new Point(456, 247);
+            guna2Button10.Margin = new Padding(3, 2, 3, 2);
             guna2Button10.Name = "guna2Button10";
             guna2Button10.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button10.Size = new Size(256, 50);
+            guna2Button10.Size = new Size(224, 38);
             guna2Button10.TabIndex = 58;
             guna2Button10.Text = "Continue";
             // 
@@ -105,10 +107,11 @@
             guna2GradientPanel1.FillColor = Color.FromArgb(82, 75, 96);
             guna2GradientPanel1.FillColor2 = Color.FromArgb(82, 75, 96);
             guna2GradientPanel1.ForeColor = Color.Transparent;
-            guna2GradientPanel1.Location = new Point(-8, 0);
+            guna2GradientPanel1.Location = new Point(-7, 0);
+            guna2GradientPanel1.Margin = new Padding(3, 2, 3, 2);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2GradientPanel1.Size = new Size(850, 424);
+            guna2GradientPanel1.Size = new Size(744, 318);
             guna2GradientPanel1.TabIndex = 5;
             // 
             // label5
@@ -117,9 +120,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Verdana", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(46, 34);
+            label5.Location = new Point(40, 26);
             label5.Name = "label5";
-            label5.Size = new Size(194, 36);
+            label5.Size = new Size(156, 29);
             label5.TabIndex = 66;
             label5.Text = "OhMyBank";
             // 
@@ -127,9 +130,9 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(730, 218);
+            label6.Location = new Point(639, 164);
             label6.Name = "label6";
-            label6.Size = new Size(33, 25);
+            label6.Size = new Size(27, 20);
             label6.TabIndex = 65;
             label6.Text = "---";
             // 
@@ -137,9 +140,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(521, 218);
+            label4.Location = new Point(456, 164);
             label4.Name = "label4";
-            label4.Size = new Size(69, 25);
+            label4.Size = new Size(56, 20);
             label4.TabIndex = 64;
             label4.Text = "Total : ";
             // 
@@ -147,15 +150,15 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(521, 102);
+            label3.Location = new Point(456, 76);
             label3.Name = "label3";
-            label3.Size = new Size(168, 23);
+            label3.Size = new Size(137, 19);
             label3.TabIndex = 63;
             label3.Text = "Enter the Amount  :";
             // 
             // guna2TextBox1
             // 
-            guna2TextBox1.BorderRadius = 20;
+            guna2TextBox1.BorderRadius = 16;
             guna2TextBox1.CustomizableEdges = customizableEdges5;
             guna2TextBox1.DefaultText = "";
             guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -165,23 +168,22 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(521, 131);
-            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
+            guna2TextBox1.Location = new Point(456, 98);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PasswordChar = '\0';
             guna2TextBox1.PlaceholderText = "";
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2TextBox1.Size = new Size(270, 43);
+            guna2TextBox1.Size = new Size(236, 32);
             guna2TextBox1.TabIndex = 62;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(63, 240);
+            label2.Location = new Point(55, 180);
             label2.Name = "label2";
-            label2.Size = new Size(92, 25);
+            label2.Size = new Size(75, 20);
             label2.TabIndex = 60;
             label2.Text = "Company";
             // 
@@ -189,9 +191,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(63, 102);
+            label1.Location = new Point(55, 76);
             label1.Name = "label1";
-            label1.Size = new Size(47, 25);
+            label1.Size = new Size(38, 20);
             label1.TabIndex = 59;
             label1.Text = "Bills";
             label1.Click += label1_Click;
@@ -201,9 +203,10 @@
             comboBox2.BackColor = SystemColors.InactiveBorder;
             comboBox2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(63, 280);
+            comboBox2.Location = new Point(55, 210);
+            comboBox2.Margin = new Padding(3, 2, 3, 2);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(265, 39);
+            comboBox2.Size = new Size(232, 33);
             comboBox2.TabIndex = 1;
             // 
             // comboBox1
@@ -211,18 +214,20 @@
             comboBox1.BackColor = SystemColors.InactiveBorder;
             comboBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(63, 135);
+            comboBox1.Location = new Point(55, 101);
+            comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(265, 39);
+            comboBox1.Size = new Size(232, 33);
             comboBox1.TabIndex = 0;
             // 
             // paybills
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(834, 415);
+            ClientSize = new Size(730, 311);
             Controls.Add(guna2GradientPanel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "paybills";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "paybills";

@@ -30,5 +30,12 @@ namespace atm2
         {
             txtboxBal.Text = GlobalVariables.GlobalIntVariable.ToString();
         }
+
+        private void guna2Button9_Click(object sender, EventArgs e)
+        {
+            Form2 Form2 = new Form2();
+            this.Hide();
+            Form2.ShowDialog();
+        }
     }
 }

@@ -40,9 +40,7 @@ namespace atm2
 
         private void btnbal_Click(object sender, EventArgs e)
         {
-            withdraw withdraw = new withdraw();
-            this.Hide();
-            withdraw.ShowDialog();
+
         }
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
@@ -50,6 +48,13 @@ namespace atm2
             checkbalance checkbalance = new checkbalance();
             this.Hide();
             checkbalance.ShowDialog();
+        }
+
+        private void btnWithdraw_Click(object sender, EventArgs e)
+        {
+            withdraw withdraw = new withdraw();
+            this.Hide();
+            withdraw.ShowDialog();
         }
     }
 }
