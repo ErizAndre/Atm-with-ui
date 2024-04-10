@@ -78,7 +78,7 @@ namespace atm2
                 {
                     Receipt Receipt = new Receipt();
 
-                    Receipt.TransactionType = "Account Withdrawn:";
+                    Receipt.TransactionType = "Amount Withdrawn :";
                     Receipt.Amount = withdrawalAmount;
 
                     Receipt.ShowDialog();

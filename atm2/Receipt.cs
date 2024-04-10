@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,8 @@ namespace atm2
     {
         public string TransactionType { get; set; }
         public int Amount { get; set; }
+        public string Issuer { get; set; }
+
         DateTime currentDateTime = DateTime.Now;
 
 
@@ -21,6 +24,7 @@ namespace atm2
         {
             InitializeComponent();
             Load += Receipt_Load;
+            txtissuer.Visible = false;
         }
         public void Receipt_Load(object sender, EventArgs e)
         {
@@ -28,6 +32,12 @@ namespace atm2
             guna2HtmlLabel4.Text = DateTime.Now.ToString();
             guna2HtmlLabel5.Text = Amount.ToString();
             guna2HtmlLabel6.Text = GlobalVariables.GlobalIntVariable.ToString();
+            txtCompany.Text = Issuer;
+            if (!string.IsNullOrEmpty(Issuer))
+            {
+                txtissuer.Visible = true;
+                txtissuer.Text = "Issuer : ";
+            }
         }
 
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -64,6 +74,20 @@ namespace atm2
         private void guna2HtmlLabel7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtissuer_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Issuer))
+            {
+                txtissuer.Visible = true;
+                txtissuer.Text = "Issuer : ";
+            }
+        }
+
+        private void txtCompany_Click(object sender, EventArgs e)
+        {
+            txtCompany.Text = Issuer;
         }
     }
 }

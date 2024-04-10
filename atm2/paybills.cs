@@ -13,6 +13,9 @@ namespace atm2
 {
     public partial class paybills : Form
     {
+        int accountBalance = GlobalVariables.GlobalIntVariable;
+        private int withdrawalAmount = 0;
+
         public paybills()
         {
             InitializeComponent();
@@ -86,7 +89,48 @@ namespace atm2
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                withdrawalAmount = int.Parse(guna2TextBox1.Text);
+            }
+            catch
+            {
+                withdrawalAmount = 0;
+            }
 
+        }
+
+        private void guna2Button10_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Press Ok again to Confirm?", "Confirm?", MessageBoxButtons.YesNoCancel);
+            // (Start) if yes run the function 
+            if (result == DialogResult.Yes)
+            {
+
+                //check if withdrawalamount is enough
+                if (withdrawalAmount > accountBalance)
+                {
+                    MessageBox.Show("Not enough money", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                GlobalVariables.GlobalIntVariable -= withdrawalAmount;
+
+                var receipt = MessageBox.Show("Would you like a receipt", "Dispensing!", MessageBoxButtons.YesNo);
+                if (receipt == DialogResult.Yes)
+                {
+                    Receipt Receipt = new Receipt();
+
+                    
+                    Receipt.TransactionType = "Amount Paid : ";
+                    Receipt.Amount = withdrawalAmount;
+                    string selectedCompany = comboBox2.SelectedItem.ToString();
+                    Receipt.Issuer = selectedCompany;
+
+                    Receipt.ShowDialog();
+
+                }
+            }
         }
     }
 }

@@ -2,16 +2,20 @@ namespace atm2
 {
     public partial class Form1 : Form
     {
+        public string pass = "01010";
+        public string inputPass = " ";
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void guna2CircleButton12_Click(object sender, EventArgs e)
+        
+
+        private void btncard_Click(object sender, EventArgs e)
         {
-            Form2 Form2 = new Form2();
+            Form3 Form3 = new Form3();
             this.Hide();
-            Form2.ShowDialog();
+            Form3.ShowDialog();
         }
     }
 }

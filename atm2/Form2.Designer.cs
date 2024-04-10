@@ -220,7 +220,7 @@
             guna2Button5.ShadowDecoration.CustomizableEdges = customizableEdges11;
             guna2Button5.Size = new Size(186, 38);
             guna2Button5.TabIndex = 6;
-            guna2Button5.Text = "Log Out";
+            guna2Button5.Text = "Remove Card";
             // 
             // Form2
             // 

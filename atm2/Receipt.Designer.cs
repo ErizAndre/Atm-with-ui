@@ -37,6 +37,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            txtissuer = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -45,8 +46,7 @@
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Shapes1 = new Guna.UI2.WinForms.Guna2Shapes();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            txtCompany = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel1.SuspendLayout();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
@@ -69,8 +69,8 @@
             // 
             // guna2Panel1
             // 
-            guna2Panel1.Controls.Add(guna2HtmlLabel8);
-            guna2Panel1.Controls.Add(guna2HtmlLabel7);
+            guna2Panel1.Controls.Add(txtCompany);
+            guna2Panel1.Controls.Add(txtissuer);
             guna2Panel1.Controls.Add(guna2HtmlLabel6);
             guna2Panel1.Controls.Add(guna2HtmlLabel5);
             guna2Panel1.Controls.Add(guna2HtmlLabel4);
@@ -86,6 +86,18 @@
             guna2Panel1.Size = new Size(317, 319);
             guna2Panel1.TabIndex = 0;
             guna2Panel1.Paint += guna2Panel1_Paint;
+            // 
+            // txtissuer
+            // 
+            txtissuer.BackColor = Color.Transparent;
+            txtissuer.Font = new Font("Segoe UI", 12F);
+            txtissuer.Location = new Point(17, 211);
+            txtissuer.Name = "txtissuer";
+            txtissuer.Size = new Size(45, 23);
+            txtissuer.TabIndex = 44;
+            txtissuer.Text = "-------";
+            txtissuer.TextAlignment = ContentAlignment.MiddleCenter;
+            txtissuer.Click += txtissuer_Click;
             // 
             // guna2HtmlLabel6
             // 
@@ -186,26 +198,17 @@
             guna2CirclePictureBox1.TabIndex = 0;
             guna2CirclePictureBox1.TabStop = false;
             // 
-            // guna2HtmlLabel7
+            // txtCompany
             // 
-            guna2HtmlLabel7.BackColor = Color.Transparent;
-            guna2HtmlLabel7.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel7.Location = new Point(17, 211);
-            guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            guna2HtmlLabel7.Size = new Size(9, 23);
-            guna2HtmlLabel7.TabIndex = 44;
-            guna2HtmlLabel7.Text = "-";
-            guna2HtmlLabel7.Click += guna2HtmlLabel7_Click;
-            // 
-            // guna2HtmlLabel8
-            // 
-            guna2HtmlLabel8.BackColor = Color.Transparent;
-            guna2HtmlLabel8.Font = new Font("Segoe UI", 12F);
-            guna2HtmlLabel8.Location = new Point(17, 240);
-            guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            guna2HtmlLabel8.Size = new Size(9, 23);
-            guna2HtmlLabel8.TabIndex = 45;
-            guna2HtmlLabel8.Text = "-";
+            txtCompany.BackColor = Color.Transparent;
+            txtCompany.Font = new Font("Segoe UI", 12F);
+            txtCompany.Location = new Point(235, 211);
+            txtCompany.Name = "txtCompany";
+            txtCompany.Size = new Size(45, 23);
+            txtCompany.TabIndex = 45;
+            txtCompany.Text = "-------";
+            txtCompany.TextAlignment = ContentAlignment.MiddleCenter;
+            txtCompany.Click += txtCompany_Click;
             // 
             // Receipt
             // 
@@ -235,7 +238,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtissuer;
+        private Guna.UI2.WinForms.Guna2HtmlLabel txtCompany;
     }
 }
