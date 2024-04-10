@@ -140,6 +140,7 @@
             guna2GradientButton1.Size = new Size(272, 94);
             guna2GradientButton1.TabIndex = 34;
             guna2GradientButton1.Text = "Pay Bills";
+            guna2GradientButton1.Click += guna2GradientButton1_Click;
             // 
             // btnDeposit
             // 

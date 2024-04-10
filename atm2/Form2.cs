@@ -40,7 +40,9 @@ namespace atm2
 
         private void btnbal_Click(object sender, EventArgs e)
         {
-
+            deposit deposit = new deposit();
+            this.Hide();
+            deposit.ShowDialog();
         }
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
@@ -55,6 +57,13 @@ namespace atm2
             withdraw withdraw = new withdraw();
             this.Hide();
             withdraw.ShowDialog();
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            paybills paybills = new paybills();
+            this.Hide();
+            paybills.ShowDialog();
         }
     }
 }

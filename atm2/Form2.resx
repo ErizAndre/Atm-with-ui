@@ -356,7 +356,7 @@
   <data name="guna2GradientButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAGj4SURBVHhe7d0H
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAGj4SURBVHhe7d0H
         uBXF3T/wy21w6b333qt0kN57FRUUELCiKCoC9oKgUkRFQARRbFhjLDGamMSCLd1YEjUx5U0vliTGlPn/
         fsv/RoLfe+85M7vnzO75fp/n87zvE7y7Z3ZnZ87ZnZ3JKyPF4jhxj3hbfCJMjtNjoMdCj8l8oceIYRiG
         YRKTOeI9gTpB+ty7YrZgGIZhmFinQNwgUGdHZbte5AuGYRiGiWXY+dvbJBiGYRgmdtHb/qhjo9TNFAzD
@@ -811,7 +811,7 @@
   <data name="btnDeposit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEp4SURBVHhe7d0H
+        DQAACw0B7QfALAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEp4SURBVHhe7d0H
         lFTl2cBxt+/Sl96r9C5Ib1KlSe8CNhREBEQkigUjVhQVC4KCiiiKigqoIE3BFnuPqZp8tkRjmiYay/s9
         75A1uD7L7s5978y9d/7/c37nO/lkZ+7M3PLszsy9RxAlobpihlgldopfic/F18IAQJy+EXZf8nuxR6wW
         s0RTQURJqr44T7wttA0XAPz0nrhMtBBElIDaiA3CTubaRgkAifa0GCCIyIeqidvF90LbAAEg2R4RDQUR

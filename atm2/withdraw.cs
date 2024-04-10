@@ -72,11 +72,16 @@ namespace atm2
                 }
 
                 // Subtract withdrawal amount from account balance
-                GlobalVariables.GlobalIntVariable -= withdrawalAmount; 
+                GlobalVariables.GlobalIntVariable -= withdrawalAmount;
                 var receipt = MessageBox.Show("Would you like a receipt", "Dispensing!", MessageBoxButtons.YesNo);
                 if (receipt == DialogResult.Yes)
                 {
+                    Receipt Receipt = new Receipt();
 
+                    Receipt.TransactionType = "Account Withdrawn:";
+                    Receipt.Amount = withdrawalAmount;
+
+                    Receipt.ShowDialog();
                 }
 
 
@@ -106,7 +111,7 @@ namespace atm2
 
 
         }
-        
+
 
 
         private void btnmain_Click(object sender, EventArgs e)
@@ -114,6 +119,41 @@ namespace atm2
             Form2 Form2 = new Form2();
             this.Hide();
             Form2.ShowDialog();
+        }
+
+        private void btn200_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "200";
+        }
+
+        private void btn500_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "500";
+        }
+
+        private void btn1000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "1000";
+        }
+
+        private void btn2000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "2000";
+        }
+
+        private void btn5000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "5000";
+        }
+
+        private void btn10000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "10000";
+        }
+
+        private void btn10500_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "10500";
         }
     }
 }
