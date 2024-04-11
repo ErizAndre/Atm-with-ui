@@ -221,6 +221,7 @@
             guna2Button5.Size = new Size(186, 38);
             guna2Button5.TabIndex = 6;
             guna2Button5.Text = "Remove Card";
+            guna2Button5.Click += guna2Button5_Click;
             // 
             // Form2
             // 

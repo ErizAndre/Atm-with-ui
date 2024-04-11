@@ -52,6 +52,11 @@ namespace atm2
                     MessageBox.Show("Not enough money", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                if (withdrawalAmount <= 0)
+                {
+                    MessageBox.Show("Please enter an amount greater than zero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 //function for calulating if bills are availble for widthdrawing
                 for (int i = availableBills.Length - 1; i >= 0; i--)

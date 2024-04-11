@@ -179,6 +179,7 @@
             btn10000.Size = new Size(152, 54);
             btn10000.TabIndex = 53;
             btn10000.Text = "10000";
+            btn10000.Click += btn10000_Click;
             // 
             // btn5000
             // 
@@ -199,6 +200,7 @@
             btn5000.Size = new Size(152, 54);
             btn5000.TabIndex = 52;
             btn5000.Text = "5000";
+            btn5000.Click += btn5000_Click;
             // 
             // btn10500
             // 
@@ -219,6 +221,7 @@
             btn10500.Size = new Size(147, 54);
             btn10500.TabIndex = 51;
             btn10500.Text = "10500";
+            btn10500.Click += btn10500_Click;
             // 
             // btn2000
             // 
@@ -239,6 +242,7 @@
             btn2000.Size = new Size(147, 54);
             btn2000.TabIndex = 50;
             btn2000.Text = "2000";
+            btn2000.Click += btn2000_Click;
             // 
             // btn1000
             // 
@@ -259,6 +263,7 @@
             btn1000.Size = new Size(147, 54);
             btn1000.TabIndex = 49;
             btn1000.Text = "1000";
+            btn1000.Click += btn1000_Click;
             // 
             // btn200
             // 
@@ -279,6 +284,7 @@
             btn200.Size = new Size(152, 54);
             btn200.TabIndex = 48;
             btn200.Text = "200";
+            btn200.Click += btn200_Click;
             // 
             // btn500
             // 
@@ -299,6 +305,7 @@
             btn500.Size = new Size(157, 54);
             btn500.TabIndex = 47;
             btn500.Text = "500";
+            btn500.Click += btn500_Click;
             // 
             // btn100
             // 
@@ -319,6 +326,7 @@
             btn100.Size = new Size(147, 54);
             btn100.TabIndex = 46;
             btn100.Text = "100";
+            btn100.Click += btn100_Click;
             // 
             // txtboxamount
             // 

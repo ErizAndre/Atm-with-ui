@@ -88,6 +88,12 @@ namespace atm2
         private void txtCompany_Click(object sender, EventArgs e)
         {
             txtCompany.Text = Issuer;
+            
+        }
+
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

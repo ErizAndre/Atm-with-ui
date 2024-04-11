@@ -198,7 +198,7 @@
             comboBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.ForeColor = SystemColors.InactiveCaptionText;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Electric", "Water ", "Credit Card" });
+            comboBox1.Items.AddRange(new object[] { "Electric", "Water", "Credit Card" });
             comboBox1.Location = new Point(55, 101);
             comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";

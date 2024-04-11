@@ -62,6 +62,7 @@ namespace atm2
 
             if (comboBox1.SelectedItem == "Electric")
             {
+                comboBox2.Items.Clear();
                 comboBox2.Items.Add("Meralco");
                 comboBox2.Items.Add("Pelco 1");
                 comboBox2.Items.Add("Pelco 2");
@@ -69,6 +70,7 @@ namespace atm2
             }
             if (comboBox1.SelectedItem == "Water")
             {
+                comboBox2.Items.Clear();
                 comboBox2.Items.Add("BCBI Waterworks");
                 comboBox2.Items.Add("Maynilad ");
                 comboBox2.Items.Add("NAWASA");
@@ -76,10 +78,11 @@ namespace atm2
             }
             if (comboBox1.SelectedItem == "Credit Card")
             {
-                comboBox2.Items.Add("UnionBank Rewards Credit Card");
-                comboBox2.Items.Add("Metrobank World Mastercard®");
-                comboBox2.Items.Add("AUB Classic Mastercard");
-                comboBox2.Items.Add(" BPI Rewards Card");
+                comboBox2.Items.Clear();
+                comboBox2.Items.Add("UnionBank Credit Card");
+                comboBox2.Items.Add("Metrobank Mastercard®");
+                comboBox2.Items.Add("AUB Mastercard");
+                comboBox2.Items.Add("BPI Rewards Card");
             }
         }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,6 +117,12 @@ namespace atm2
                     return;
                 }
 
+                if (withdrawalAmount <= 0)
+                {
+                    MessageBox.Show("Please enter an amount greater than zero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 GlobalVariables.GlobalIntVariable -= withdrawalAmount;
 
                 var receipt = MessageBox.Show("Would you like a receipt", "Dispensing!", MessageBoxButtons.YesNo);
@@ -121,13 +130,28 @@ namespace atm2
                 {
                     Receipt Receipt = new Receipt();
 
-                    
+
                     Receipt.TransactionType = "Amount Paid : ";
                     Receipt.Amount = withdrawalAmount;
-                    string selectedCompany = comboBox2.SelectedItem.ToString();
-                    Receipt.Issuer = selectedCompany;
 
-                    Receipt.ShowDialog();
+                    if (comboBox2.SelectedItem != null)
+                    {
+                        string selectedCompany = comboBox2.SelectedItem.ToString();
+                        Receipt.Issuer = selectedCompany;
+                        Receipt.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select the company for the corresponding bill type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                    
+                    
+
+                    
+
+
+                    
 
                 }
             }

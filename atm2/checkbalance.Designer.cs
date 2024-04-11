@@ -124,10 +124,11 @@
             // 
             // txtboxBal
             // 
+            txtboxBal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtboxBal.BackColor = Color.Transparent;
             txtboxBal.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtboxBal.ForeColor = Color.MidnightBlue;
-            txtboxBal.Location = new Point(230, 57);
+            txtboxBal.Location = new Point(238, 57);
             txtboxBal.Name = "txtboxBal";
             txtboxBal.Size = new Size(87, 44);
             txtboxBal.TabIndex = 62;
@@ -141,7 +142,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Poppins", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.MidnightBlue;
-            label1.Location = new Point(176, 17);
+            label1.Location = new Point(182, 17);
             label1.Name = "label1";
             label1.Size = new Size(200, 37);
             label1.TabIndex = 59;

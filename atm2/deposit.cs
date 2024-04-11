@@ -46,7 +46,7 @@ namespace atm2
 
         private void btnwithdraw_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Press Ok again to Confirm?", "Confirm?", MessageBoxButtons.YesNoCancel);
+            var result = MessageBox.Show("Press Ok again to Confirm?", "Confirm?", MessageBoxButtons.YesNo);
 
             // (Start) if yes run the function 
             if (result == DialogResult.Yes)
@@ -62,6 +62,12 @@ namespace atm2
                 if (withdrawalAmount > accountBalance)
                 {
                     MessageBox.Show("Not enough money", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (withdrawalAmount <= 0)
+                {
+                    MessageBox.Show("Please enter an amount greater than zero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -105,6 +111,46 @@ namespace atm2
             Form2 Form2 = new Form2();
             this.Hide();
             Form2.ShowDialog();
+        }
+
+        private void btn100_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "100";
+        }
+
+        private void btn200_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "200";
+        }
+
+        private void btn500_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "500";
+        }
+
+        private void btn1000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "1000";
+        }
+
+        private void btn2000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "2000";
+        }
+
+        private void btn5000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "5000";
+        }
+
+        private void btn10000_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "10000";
+        }
+
+        private void btn10500_Click(object sender, EventArgs e)
+        {
+            txtboxamount.Text = "10500";
         }
     }
 }

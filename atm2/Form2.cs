@@ -65,5 +65,12 @@ namespace atm2
             this.Hide();
             paybills.ShowDialog();
         }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            Form1 Form1 = new Form1();
+            this.Hide();
+            Form1.ShowDialog();
+        }
     }
 }

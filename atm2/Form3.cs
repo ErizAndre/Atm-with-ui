@@ -39,6 +39,12 @@ namespace atm2
                 this.Hide();
                 Form2.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Wrong Pin Try Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
         }
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)
