@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,22 +9,94 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static atm2.withdraw;
 
 namespace atm2
 {
     public partial class withdraw : Form
     {
-        int[] availableBills = { 20, 50, 100, 200, 500, 1000 };
-        int accountBalance = GlobalVariables.GlobalIntVariable;
+        int[] availableBills = { 20 };
         private int withdrawalAmount = 0;
         private int remainingAmount = 0;
         private bool dispensed = false;
+        public string filePath = "UserInfo.json";
 
+        public string filePath2 = "Transaction.json";
+
+        public List<transacdata> TransHistory = new List<transacdata>();
+
+        DateTime currentDateTime = DateTime.Now;
+
+        public List<UserCred> userData;
+        int bal;
+        string realuser;
+        string loggedInUser = CurrentLogUser.LoggedInPass;
+        
+        public class UserCred
+        {
+            public string User { get; set; }
+            public string Pass { get; set; }
+            public string Balance { get; set; }
+        }
+
+        public class transacdata
+        {
+            public string User { get; set; }
+            public string Amount { get; set; }
+            public string Issuer { get; set; }
+            public string Date { get; set; }
+        }
 
 
         public withdraw()
         {
             InitializeComponent();
+            LoadUserData();
+            FindUserBalance();
+            LoadTransactionHistory();
+            string loggedInUser = CurrentLogUser.LoggedInPass;
+           
+        }
+        public void FindUserBalance()
+        {
+  
+            foreach (var user in userData)
+            {
+                if (user.Pass == loggedInUser)
+                {
+                    bal = int.Parse(user.Balance);
+                    realuser = user.User;
+
+
+                    return;
+                }
+            }
+        }
+        private void SaveUserData()
+        {
+            string json = JsonConvert.SerializeObject(userData);
+            File.WriteAllText(filePath, json);
+        }
+
+        private void LoadUserData()
+        {
+            if (File.Exists(filePath))
+            {
+
+                string json = File.ReadAllText(filePath);
+                userData = JsonConvert.DeserializeObject<List<UserCred>>(json);
+            }
+           
+
+        }
+        private void LoadTransactionHistory()
+        {
+            if (File.Exists(filePath2))
+            {
+                string json = File.ReadAllText(filePath2);
+                TransHistory = JsonConvert.DeserializeObject<List<transacdata>>(json);
+            }
         }
 
         private void guna2Button10_Click(object sender, EventArgs e)
@@ -34,7 +107,7 @@ namespace atm2
         private void btnwithdraw_Click(object sender, EventArgs e)
         {
 
-            var result = MessageBox.Show("Press Ok again to Confirm?", "Confirm?", MessageBoxButtons.YesNoCancel);
+            var result = MessageBox.Show("Press Ok again to Confirm?", "Confirm?", MessageBoxButtons.YesNo);
 
             // (Start) if yes run the function 
             if (result == DialogResult.Yes)
@@ -47,7 +120,7 @@ namespace atm2
                 }
 
                 //check if withdrawalamount is enough
-                if (withdrawalAmount > accountBalance)
+                if (withdrawalAmount > bal)
                 {
                     MessageBox.Show("Not enough money", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -59,7 +132,7 @@ namespace atm2
                 }
 
                 //function for calulating if bills are availble for widthdrawing
-                for (int i = availableBills.Length - 1; i >= 0; i--)
+                for (int i = 0; i < availableBills.Length; i++)
                 {
                     int billCount = remainingAmount / availableBills[i];
                     if (billCount > 0)
@@ -77,14 +150,44 @@ namespace atm2
                 }
 
                 // Subtract withdrawal amount from account balance
-                GlobalVariables.GlobalIntVariable -= withdrawalAmount;
+
+                bal -= withdrawalAmount;
+                
+                string formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                var Transac = new transacdata
+                {
+                    User = realuser,
+                    Amount = $"-₱{withdrawalAmount}",
+                    Issuer = "",
+                    Date = formattedDateTime
+                };
+                TransHistory.Add(Transac);
+                var json = JsonConvert.SerializeObject(TransHistory);
+                File.WriteAllText(filePath2, json);
+
+
+                foreach (var user in userData)
+                {
+                    if (user.Pass == loggedInUser)
+                    {
+                        user.Balance = bal.ToString();
+                        break; 
+                    }
+                }
+                SaveUserData();
+
                 var receipt = MessageBox.Show("Would you like a receipt", "Dispensing!", MessageBoxButtons.YesNo);
                 if (receipt == DialogResult.Yes)
                 {
+                 
                     Receipt Receipt = new Receipt();
 
                     Receipt.TransactionType = "Amount Withdrawn :";
                     Receipt.Amount = withdrawalAmount;
+
+
+                   
 
                     Receipt.ShowDialog();
                 }

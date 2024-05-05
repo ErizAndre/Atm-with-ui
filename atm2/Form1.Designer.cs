@@ -75,8 +75,11 @@
             guna2Button1.HoverState.BorderColor = Color.Transparent;
             guna2Button1.HoverState.CustomBorderColor = Color.Transparent;
             guna2Button1.HoverState.FillColor = Color.Transparent;
+            guna2Button1.HoverState.ForeColor = Color.Transparent;
+            guna2Button1.ImageSize = new Size(0, 0);
             guna2Button1.Location = new Point(429, 37);
             guna2Button1.Name = "guna2Button1";
+            guna2Button1.PressedColor = Color.Transparent;
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(226, 208);
             guna2Button1.TabIndex = 35;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,21 +8,83 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static atm2.withdraw;
 
 namespace atm2
 {
 
     public partial class deposit : Form
     {
-        int[] availableBills = { 20, 50, 100, 200, 500, 1000 };
-        int accountBalance = GlobalVariables.GlobalIntVariable;
+        int[] availableBills = { 20 };
         private int withdrawalAmount = 0;
         private int remainingAmount = 0;
         private bool dispensed = false;
+        public string filePath = "UserInfo.json";
+        public List<UserCred> userData;
+        int bal;
+        string loggedInUser = CurrentLogUser.LoggedInPass;
+        string realuser;
+
+        public string filePath2 = "Transaction.json";
+        public List<transacdata> TransHistory = new List<transacdata>();
+
+        
+        DateTime currentDateTime = DateTime.Now;
+
+        public class UserCred
+        {
+            public string User { get; set; }
+            public string Pass { get; set; }
+            public string Balance { get; set; }
+        }
+        public void FindUserBalance()
+        {
+
+            foreach (var user in userData)
+            {
+                if (user.Pass == loggedInUser)
+                {
+                    bal = int.Parse(user.Balance);
+                    realuser = user.User;
+                    return;
+                }
+            }
+        }
+        private void LoadTransactionHistory()
+        {
+            if (File.Exists(filePath2))
+            {
+                string json = File.ReadAllText(filePath2);
+                TransHistory = JsonConvert.DeserializeObject<List<transacdata>>(json);
+            }
+        }
+
+        private void LoadUserData()
+        {
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                userData = JsonConvert.DeserializeObject<List<UserCred>>(json);
+            }
+
+
+        }
+
+        private void SaveUserData()
+        {
+            string json = JsonConvert.SerializeObject(userData);
+            File.WriteAllText(filePath, json);
+        }
+
 
         public deposit()
         {
             InitializeComponent();
+            LoadUserData();
+            LoadTransactionHistory();
+            FindUserBalance();
+
+            string loggedInUser = CurrentLogUser.LoggedInPass;
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
@@ -59,7 +122,7 @@ namespace atm2
                 }
 
                 //check if withdrawalamount is enough
-                if (withdrawalAmount > accountBalance)
+                if (withdrawalAmount > bal)
                 {
                     MessageBox.Show("Not enough money", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -72,7 +135,7 @@ namespace atm2
                 }
 
                 //function for calulating if bills are availble for widthdrawing
-                for (int i = availableBills.Length - 1; i >= 0; i--)
+                for (int i = 0; i < availableBills.Length; i++)
                 {
                     int billCount = remainingAmount / availableBills[i];
                     if (billCount > 0)
@@ -90,18 +153,53 @@ namespace atm2
                 }
 
                 // Subtract withdrawal amount from account balance
-                GlobalVariables.GlobalIntVariable += withdrawalAmount;
+
+                bal += withdrawalAmount;
+
+                // json transac saving
+
+                string formattedDateTime = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                var Transac = new transacdata
+                {
+                    User = realuser,
+                    Amount = $"+₱{withdrawalAmount}",
+                    Issuer = "",
+                    Date = formattedDateTime
+                };
+                TransHistory.Add(Transac);
+                var json = JsonConvert.SerializeObject(TransHistory);
+                File.WriteAllText(filePath2, json);
+
+                //check userbal
+
+                foreach (var user in userData)
+                {
+                    if (user.Pass == loggedInUser)
+                    {
+                        user.Balance = bal.ToString();
+                        break;
+                    }
+                }
+
+                SaveUserData();
+
+                //receipt
                 var receipt = MessageBox.Show("Would you like a receipt", "Depositing!", MessageBoxButtons.YesNo);
                 if (receipt == DialogResult.Yes)
                 {
+                    
+
                     Receipt Receipt = new Receipt();
 
                     Receipt.TransactionType = "Amount Deposit: ";
                     Receipt.Amount = withdrawalAmount;
 
                     Receipt.ShowDialog();
-                }
 
+                    
+                }
+               
 
             }
         }

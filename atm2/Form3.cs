@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace atm2
 {
@@ -15,9 +17,27 @@ namespace atm2
         public Form3()
         {
             InitializeComponent();
+            LoadUserData();
         }
-        public string pass = "01010";
+        public string filePath = "UserInfo.json";
+        public List<UserCred> userData;
         public string inputPass = " ";
+
+        public class UserCred
+        {
+            public string User { get; set; }
+            public string Pass { get; set; }
+        }
+
+        private void LoadUserData()
+        {
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                userData = JsonConvert.DeserializeObject<List<UserCred>>(json);
+            }
+
+        }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -33,18 +53,27 @@ namespace atm2
 
         private void guna2CircleButton12_Click(object sender, EventArgs e)
         {
-            if (pass == inputPass)
+            bool ifloggedIn = false;
+
+            foreach (UserCred user in userData)
             {
-                Form2 Form2 = new Form2();
-                this.Hide();
-                Form2.ShowDialog();
+                if (user.Pass == inputPass)
+                {
+                    ifloggedIn = true;
+                    CurrentLogUser.LoggedInPass = inputPass;
+
+
+                    Form2 Form2 = new Form2();
+                    this.Hide();
+                    Form2.ShowDialog();
+                    break;
+                }
             }
-            else
+            if (!ifloggedIn)
             {
                 MessageBox.Show("Wrong Pin Try Again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            
+
         }
 
         private void guna2CircleButton1_Click(object sender, EventArgs e)

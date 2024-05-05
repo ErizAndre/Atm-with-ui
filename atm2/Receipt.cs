@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,22 +8,52 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace atm2
 {
     public partial class Receipt : Form
     {
+        public string filePath = "UserInfo.json";
+        public List<UserCred> userData;
+        int bal;
+        string loggedInUser = CurrentLogUser.LoggedInPass;
+
         public string TransactionType { get; set; }
         public int Amount { get; set; }
         public string Issuer { get; set; }
 
         DateTime currentDateTime = DateTime.Now;
 
+        public void FindUserBalance()
+        {
+
+            foreach (var user in userData)
+            {
+                if (user.Pass == loggedInUser)
+                {
+                    bal = int.Parse(user.Balance);
+                    return;
+                }
+            }
+        }
+    
+        private void LoadUserData()
+        {
+            if (File.Exists(filePath))
+            {
+
+                string json = File.ReadAllText(filePath);
+                userData = JsonConvert.DeserializeObject<List<UserCred>>(json);
+            }
+
+        }
 
         public Receipt()
         {
             InitializeComponent();
+            LoadUserData();
             Load += Receipt_Load;
             txtissuer.Visible = false;
         }
@@ -31,13 +62,17 @@ namespace atm2
             guna2HtmlLabel2.Text = TransactionType;
             guna2HtmlLabel4.Text = DateTime.Now.ToString();
             guna2HtmlLabel5.Text = Amount.ToString();
-            guna2HtmlLabel6.Text = GlobalVariables.GlobalIntVariable.ToString();
+            guna2HtmlLabel6.Text = bal.ToString();
             txtCompany.Text = Issuer;
             if (!string.IsNullOrEmpty(Issuer))
             {
                 txtissuer.Visible = true;
                 txtissuer.Text = "Issuer : ";
             }
+
+            
+
+
         }
 
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
